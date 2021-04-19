@@ -1,5 +1,5 @@
 export const resolvers = {
-    Query: {
-      testMessage: () => 'Hello World!',
-    },
-  };
+  //   Query: {
+  //     getClubsInfo: () => "hi",
+  //   },
+};

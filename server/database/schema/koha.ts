@@ -1,13 +1,12 @@
 import { gql } from "apollo-server-lambda";
 
-export const typeDefs = gql`
-  type Query {
-    getClubsInfo: [kohaclub]
-  }
-
+export default gql`
   type kohaclub {
     _id: ID!
     name: String!
     Amount: Int
+  }
+  type Query {
+    kohaclub: [kohaclub]
   }
 `;

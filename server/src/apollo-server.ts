@@ -1,7 +1,14 @@
 import { ApolloServer } from "apollo-server-lambda";
-import { resolvers } from "./resolvers";
-import { typeDefs } from "./type-defs";
 import { getConnection } from "../database";
+import typeDefs from "../database/schema/koha";
+import resolvers from "../database/resolvers/kohaclub";
+
+// serverless server on aws lambda - ap-southeast-2
+// as defined in serverless.yml
+// need to install aws-cli
+// run aws configure first
+// https://ap-southeast-2.console.aws.amazon.com/lambda/home?region=ap-southeast-2#/discover
+// for local development, please run npm start
 
 const apolloServer = new ApolloServer({
   resolvers,
@@ -10,6 +17,7 @@ const apolloServer = new ApolloServer({
     const dbConn = await getConnection();
     return { dbConn };
   },
+  // context: { models },
   playground: true,
   introspection: true,
 });
